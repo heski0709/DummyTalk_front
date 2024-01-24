@@ -1,6 +1,6 @@
 import { Switch } from "@headlessui/react";
 import { useEffect, useRef, useState } from "react";
-import AudioRecorderTest from "../AudioRecorder/AudioRecorderTest";
+import AudioRecorder from "src/components/audioRecorder/audioRecorder";
 import { useSocket } from "../hooks/use-socket";
 import { useUrlQuery } from "../hooks/use-url-query";
 import { Label } from "../ui/label";
@@ -298,7 +298,7 @@ const ChatVoiceInputTest = () => {
                     />
                 </Switch>
                 {otherUserStream && (
-                    <AudioRecorderTest stream={otherUserStream} />
+                    <AudioRecorder stream={otherUserStream} />
                 )}
             </div>
             {/* 메시지 입력란 */}

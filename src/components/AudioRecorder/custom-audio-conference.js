@@ -7,7 +7,7 @@ import {
 } from "@livekit/components-react";
 import { RemoteTrackPublication, Track } from "livekit-client";
 import { useLayoutEffect, useState } from "react";
-import AudioRecorderTest from "AudioRecorderTest";
+import AudioRecorder from "src/components/audioRecorder/audioRecorder";
 
 const CustomAudioConference = ({ ...props }) => {
     const [mediaStream, setMediaStream] = useState(null);
@@ -57,7 +57,7 @@ const CustomAudioConference = ({ ...props }) => {
                             leave: false,
                         }}
                     />
-                    {mediaStream && <AudioRecorderTest stream={mediaStream} />}
+                    {mediaStream && <AudioRecorder stream={mediaStream} />}
                 </div>
 
                 <div

@@ -6,7 +6,7 @@ import ChatInput from "src/components/chat/chat-input";
 import ChatMessages from "src/components/chat/chat-messages";
 import LiveKit from "src/components/chat/livekit";
 import { useUrlQuery } from "src/components/hooks/use-url-query";
-import RightBar from "src/layouts/MainLayout/RightSide";
+import RightBar from "src/layouts/MainLayout/RightBar";
 import { decodeJwt } from "src/lib/tokenUtils";
 
 function Chat() {

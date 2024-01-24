@@ -2,8 +2,8 @@ import { Switch } from "@headlessui/react";
 import axios from "axios";
 import { ImagePlus } from "lucide-react";
 import { useCallback, useEffect, useRef, useState } from "react";
+import AudioRecorder from "src/components/audioRecorder/audioRecorder";
 import { Textarea } from "src/components/ui/textarea";
-import AudioRecorderTest from "../AudioRecorder/AudioRecorderTest";
 import { useChatData } from "../hooks/use-chat-data";
 import { useModal } from "../hooks/use-modal";
 import { useSocket } from "../hooks/use-socket";
@@ -130,7 +130,7 @@ const ChatVoiceInput = ({ channelId, userInfo, setData }) => {
                         } pointer-events-none inline-block h-[21px] w-[21px] transform rounded-full bg-white shadow-lg ring-0 transition duration-200 ease-in-out`}
                     />
                 </Switch>
-                {stream && <AudioRecorderTest stream={stream} />}
+                {stream && <AudioRecorder stream={stream} />}
             </div>
             {/* 메시지 입력란 */}
             <Textarea

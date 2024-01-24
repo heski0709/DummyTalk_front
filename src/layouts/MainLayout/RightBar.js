@@ -1,9 +1,7 @@
-import {useEffect, useRef, useState} from "react";
-import {useUrlQuery} from "src/components/hooks/use-url-query";
-import CellComponent from "src/layouts/RightSide/component/CellComponent";
-import TextSearchComponent from "src/layouts/RightSide/component/text-search-component";
-import SummaryComponent from "src/layouts/RightSide/component/summary-component";
-import {useSocket} from "src/components/hooks/use-socket";
+import { useState } from "react";
+import TextSearchComponent from "src/layouts/MainLayout/chat/RightSide/component/text-search-component";
+import CellComponent from "src/layouts/MainLayout/chat/RightSide/component/CellComponent";
+import SummaryComponent from "src/layouts/MainLayout/chat/RightSide/component/summary-component";
 
 const RightBar = () => {
     const [activeTab, setActiveTab] = useState('image');
