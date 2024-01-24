@@ -1,6 +1,6 @@
-import LeftSideBar from "src/layouts/LeftSide/left-side-bar";
-import ServerSideBar from "src/layouts/LeftSide/server-side-bar";
-import Chat from "../layouts/chat/Chat";
+import LeftSideBar from "src/layouts/MainLayout/LeftSide/left-side-bar";
+import ServerSideBar from "src/layouts/MainLayout/LeftSide/server-side-bar";
+import Chat from "../layouts/MainLayout/chat/Chat";
 
 function MainPage() {
     return (

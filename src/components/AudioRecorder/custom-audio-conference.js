@@ -7,7 +7,7 @@ import {
 } from "@livekit/components-react";
 import { RemoteTrackPublication, Track } from "livekit-client";
 import { useLayoutEffect, useState } from "react";
-import AudioRecorderTest from "./AudioRecorderTest";
+import AudioRecorderTest from "AudioRecorderTest";
 
 const CustomAudioConference = ({ ...props }) => {
     const [mediaStream, setMediaStream] = useState(null);

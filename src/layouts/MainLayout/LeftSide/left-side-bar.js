@@ -1,34 +1,27 @@
 import axios from "axios";
 import {
     Bell,
+    BellDot,
     ChevronDown,
     ChevronUp,
     LogOut,
     Plus,
-    PlusCircle,
-    Settings,
-    TrashIcon,
-    UserPlus,
-    Users,
-    BellDot
+    UserPlus
 } from "lucide-react";
-import {useEffect, useMemo, useState} from "react";
-import {useLocation, useNavigate} from "react-router-dom";
-import {Button} from "src/components/ui/button";
-import {decodeJwt} from "src/lib/tokenUtils";
-import {useModal} from "src/components/hooks/use-modal";
-import {useDispatch, useSelector} from "react-redux";
-import {callGetFriendRequest, callPostApproval, callPostRefusal} from "src/api/MainAPICalls";
-import { cn } from "src/lib/utils";
-import {FriendRequest} from "src/layouts/LeftSide/FriendRequest";
-import styles from "src/layouts/LeftSide/left-side-bar.module.css"
+import { useEffect, useMemo, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useLocation, useNavigate } from "react-router-dom";
+import { callGetFriendRequest, callPostApproval, callPostRefusal } from "src/api/MainAPICalls";
+import { useModal } from "src/components/hooks/use-modal";
+import { Button } from "src/components/ui/button";
 import {
     DropdownMenu,
     DropdownMenuContent,
     DropdownMenuItem,
-    DropdownMenuSeparator,
     DropdownMenuTrigger
 } from "src/components/ui/dropdown-menu";
+import { decodeJwt } from "src/lib/tokenUtils";
+import { cn } from "src/lib/utils";
 
 const LeftSideBar = () => {
     const [serverList, setServerList] = useState([]);
