@@ -72,15 +72,15 @@ const ImageSendModal = () => {
                     {"Content-Type": "multipart/form-data"}
                 );
 
-                console.log("업로드 성공:", response);
-
                 if (response?.status === 200) {
                     if (!isConnected || !response) return;
 
                     response.data.data.map((chat) => (
                         socket.send(`/app/${channelId}/message`
                             , JSON.stringify({
-                                sender: sub,
+                                sender: {
+                                    userId: sub
+                                },
                                 chatId: chat.chatId,
                                 channelId: channelId,
                                 nickname: chat.nickname,
@@ -105,8 +105,6 @@ const ImageSendModal = () => {
         }
     };
 
-
-    console.log(isConnected)
     return (
         <Dialog
             open={isModalOpen}

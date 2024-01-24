@@ -1,7 +1,7 @@
 import { Switch } from "@headlessui/react";
 import axios from "axios";
 import { ImagePlus } from "lucide-react";
-import {useCallback, useEffect, useMemo, useRef, useState} from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
 import { useUrlQuery } from "src/components/hooks/use-url-query";
 import { Textarea } from "src/components/ui/textarea";
@@ -46,10 +46,9 @@ const ChatInput = ({ userInfo }) => {
             `/topic/msg/${channelId}`,
             async (msg) => {
                 let result = JSON.parse(msg.body);
-                console.log("result   :", result);
 
-                if (enabled && result.chat.sender !== parseInt(userInfo?.sub)) {
-                    const apiUrl = `${process.env.REACT_APP_API_URL}/chat/trans/${userInfo?.national_language}`;
+                if (enabled && result.chat.sender?.userId !== parseInt(userInfo?.sub)) {
+                    const apiUrl = `${process.env.REACT_APP_FASTAPI_URL}/api/v1/trans/${userInfo?.national_language}`;
                     const axiosConfig = {
                         url: apiUrl,
                         method: "POST",
@@ -71,11 +70,10 @@ const ChatInput = ({ userInfo }) => {
         setIsSummaryLoading(true);
         try {
             const response = await axios.post(
-                `http://localhost:8000/api/summary/${channelId}/summary`,
+                `${process.env.REACT_APP_FASTAPI_URL}/api/summary/${channelId}/summary`,
                 { nation_language: userLanguage },
                 { headers: { 'Content-Type': 'application/json' } }
             );
-            console.log("summary 요청 성공:", response.data);
             setSummary(currentSummaryState => !currentSummaryState);
         } catch (error) {
             console.error("summary 요청 실패:", error.response || error.message, ">>>>>>", userLanguage);
@@ -103,7 +101,9 @@ const ChatInput = ({ userInfo }) => {
 
         socket.send(`/app/${channelId}/message`, JSON.stringify({
             message: sendMessageRef.current?.value,
-            sender: userInfo?.sub,
+            sender: {
+                userId: userInfo?.sub
+            },
             nickname: user?.nickname,
             langague: userInfo?.national_language,
             channelId,
