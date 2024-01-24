@@ -303,4 +303,7 @@ fabric.properties
 .history
 .ionide
 
+# env
+.env.production.local
+Dockerfile
 # End of https://www.toptal.com/developers/gitignore/api/yarn,react,node
