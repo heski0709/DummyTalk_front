@@ -5,7 +5,7 @@ import { Loader2 } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { decodeJwt } from "src/lib/tokenUtils";
-import CustomAudioConference from "../AudioRecorder/custom-audio-conference";
+import CustomAudioConference from "../audioRecorder/custom-audio-conference";
 import { useUrlQuery } from "../hooks/use-url-query";
 
 const LiveKit = () => {
